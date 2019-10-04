@@ -1,0 +1,27 @@
+<div class="form-container">
+<h1>User Login</h1>
+
+<div class="login-form">
+
+    <form #LoginForm="ngForm" class="form-body" (submit)="getLoginResponse(LoginForm)">
+        <input type="text" placeholder="Username" name="username" id="username-input" autocomplete="off" ngModel/>
+        <br/>
+        <input type="password" placeholder="Password" name="password" id="password-input" ngModel/>
+        <br/>
+        <div class="radio-buttons">
+            <input type="radio" name="userType" value="Trainer" class="userType-input" ngModel/> Trainer
+            <input type="radio" name="userType" value="Trainee" class="userType-input" ngModel/> Trainee
+        </div>
+        
+        <br/>
+        <input type="submit" value="Login" class="login-button"/>
+        <br/>
+        <p *ngIf="loginResponse">Welcome {{user.Username}}!</p>
+        <div *ngIf="hasErrors">
+            <p *ngFor="let error of receivedErrors">{{error}}</p>
+        </div>
+    </form>
+
+</div>
+
+</div>
